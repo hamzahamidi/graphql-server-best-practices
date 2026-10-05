@@ -3,7 +3,7 @@
 The skill draws on these primary sources:
 
 - [GraphQL execution](https://graphql.org/learn/execution/)
-- [GraphQL specification](https://spec.graphql.org/October2021/)
+- [GraphQL specification](https://spec.graphql.org/September2025/)
 - [DataLoader](https://github.com/graphql/dataloader)
 - [Apollo Server data fetching](https://www.apollographql.com/docs/apollo-server/data/fetching-data)
 - [Apollo security overview](https://www.apollographql.com/docs/graphos/platform/security/overview)

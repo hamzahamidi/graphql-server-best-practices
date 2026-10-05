@@ -8,11 +8,11 @@ The guidance is framework aware. It asks an agent to inspect the codebase and th
 
 ### Codex
 
-For a project, copy `skills/graphql-server-best-practices` into that project's `.agents/skills/` directory. Codex will discover the `SKILL.md` there. You can also install the skill in your personal skills directory.
+For a project, copy `skills/graphql-server-best-practices` into that project's `.agents/skills/` directory. Codex will discover the `SKILL.md` there. For personal use, copy it to `~/.agents/skills/graphql-server-best-practices/`.
 
 ### Claude Code
 
-Add this repository as a marketplace, then install the plugin:
+The marketplace manifest is `.claude-plugin/marketplace.json`; the plugin manifest is `.claude-plugin/plugin.json`. Add this repository as a marketplace, then install the plugin:
 
 ```sh
 claude plugin marketplace add hamzahamidi/graphql-server-best-practices
@@ -21,7 +21,13 @@ claude plugin install graphql-server-best-practices@graphql-server-best-practice
 
 ### ChatGPT and Codex plugin package
 
-This repository includes a portable OpenAI plugin manifest and the skill. To install it outside Codex project skills, package the repository as a ZIP and upload it through the Plugins settings or plugin submission portal. A public GitHub release does not automatically add it to the OpenAI directory.
+This repository includes a portable OpenAI plugin package and the skill. To submit it to the ChatGPT and Codex plugin directory, create a ZIP with `plugin.json` at its root, then upload it in the [OpenAI Platform Plugins dashboard](https://platform.openai.com/plugins). The directory requires a verified developer identity, automated checks, and OpenAI review before publication. See the [submission guide](https://developers.openai.com/plugins/deploy/submission). A GitHub release does not automatically add the plugin to that directory.
+
+After the `v1.0.0` tag exists, create the package with:
+
+```sh
+git archive --format=zip --output=graphql-server-best-practices-1.0.0.zip v1.0.0
+```
 
 ## Guidance and sources
 

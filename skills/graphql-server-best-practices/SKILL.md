@@ -43,7 +43,7 @@ Here `Query.post` returns a post value. `Post.author` returns the author value. 
 ## Design a stable schema
 
 1. Design types and fields around the concepts and operations clients need. Keep database tables, internal service boundaries, and storage details behind the API unless they are meaningful parts of the contract.
-2. Choose nullability to match real guarantees and failure behavior. Check how a nullable child failure propagates through non-null parents before changing a field's nullability.
+2. Choose nullability to match real guarantees and failure behavior. Check how a non-null child failure propagates to the nearest nullable ancestor, including list item and list nullability, before changing a field's nullability.
 3. Use explicit input and result types for meaningful operations. Keep naming consistent with the existing schema and avoid broad generic JSON fields unless the domain needs an opaque value.
 4. Evolve public fields compatibly. Prefer deprecation and a migration path before removing or changing a field clients may use.
 
@@ -54,7 +54,7 @@ Prevent N+1 backend work when a nested field is resolved for many parent values.
 1. Prefer the repository's DataLoader or equivalent batching abstraction for repeated key based lookups from nested fields. For example, resolve `Post.author` with a `userById` loader instead of issuing one user request for every post.
 2. Make the batch function perform a real bulk lookup where the backend supports one. A loader wrapper that loops over keys and issues one backend request for each key does not remove N+1 work.
 3. Follow the chosen loader's contract for result shape, key ordering, missing keys, errors, duplicate keys, scheduling, and cache behavior. JavaScript DataLoader expects one result per key in input order. Other libraries may use a different contract.
-4. Include every result-affecting field argument in the cache key or use a separate loader instance. This includes pagination, filters, sort order, locale, and visibility options. A loader bound to request identity may use that request's authorization context without repeating it in every key.
+4. Include every result-affecting field argument in the cache key or use a separate loader instance. This includes pagination, filters, sort order, locale, and visibility options. A loader bound to request identity may use that request's authorization context without repeating it in every key. JavaScript DataLoader compares object keys by identity by default. Use a canonical scalar key or a stable `cacheKeyFn` for composite keys so equivalent keys can share a cache entry.
 5. Scope loaders to a request or operation whenever results can vary by user, tenant, locale, permissions, or other request context. Never share a permission-sensitive loader cache globally across users. For long-lived subscriptions, check whether loaders and authorization context are refreshed or invalidated between events.
 6. Pass the minimum authorization context required by the data access layer. A loader must not make an otherwise forbidden object visible just because it was fetched for another field.
 7. After a successful mutation changes cached data, invalidate affected entity keys, alternate lookup keys, and relationship keys as needed. In JavaScript DataLoader, `prime()` does not replace an existing cached value, so clear the key before priming it with the new value. Follow the selected library's equivalent invalidation pattern.
@@ -99,7 +99,7 @@ Before finishing, check the changed path against these questions:
 Use these primary sources for framework-neutral behavior and implementation details:
 
 * [GraphQL execution and field resolvers](https://graphql.org/learn/execution/)
-* [GraphQL specification](https://spec.graphql.org/October2021/)
+* [GraphQL specification](https://spec.graphql.org/September2025/)
 * [DataLoader documentation](https://github.com/graphql/dataloader)
 * [Apollo Server data fetching](https://www.apollographql.com/docs/apollo-server/data/fetching-data)
 * [Apollo GraphQL security overview](https://www.apollographql.com/docs/graphos/platform/security/overview)

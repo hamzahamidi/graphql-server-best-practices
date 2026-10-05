@@ -4,7 +4,7 @@ A portable skill and practical reference for people and coding agents working on
 
 The guidance is framework aware. It asks an agent to inspect the codebase and the installed framework version before recommending a pattern. It does not require a resolver for every field: use the default resolver when the parent already contains the value. Use nested field resolvers for independently loaded relationships, and use DataLoader or an equivalent when repeated lookups can be batched through a real bulk operation. `Promise.all` is for independent concurrent work, not a substitute for batching.
 
-## Use the skill
+## Installation
 
 ### Codex
 
@@ -29,9 +29,31 @@ npx skills add hamzahamidi/graphql-server-best-practices --skill graphql-server-
 
 The CLI can install it for supported agents such as Claude Code, Codex, Cursor, and Windsurf. See the [CLI documentation](https://www.skills.sh/docs/cli) for agent options and telemetry settings.
 
-### ChatGPT and Codex plugin package
+## Usage examples
 
-This repository includes a portable OpenAI plugin package and the skill. To submit it to the ChatGPT and Codex plugin directory, create a ZIP with `plugin.json` at its root, then upload it in the [OpenAI Platform Plugins dashboard](https://platform.openai.com/plugins). The directory requires a verified developer identity, automated checks, and OpenAI review before publication. See the [submission guide](https://developers.openai.com/plugins/deploy/submission). A GitHub release does not automatically add the plugin to that directory.
+Use the skill by asking an agent to apply it to a concrete GraphQL task. For example:
+
+### Review a resolver for N+1 queries
+
+```text
+Trace the Post.author field from its resolver to the data source. Check whether
+the current code makes one backend request per post, whether a real bulk lookup
+exists, and how the repository scopes and authorizes its DataLoader. Recommend
+the smallest change that follows the installed framework and local conventions.
+```
+
+### Implement a nested field
+
+```text
+Implement Post.author using this repository's existing resolver and loader
+patterns. Keep independent field behavior in the field resolver, preserve
+authorization, and follow the loader's result ordering and cache scope. Use
+Promise.all only for independent work, not to issue one request per post.
+```
+
+### Optional OpenAI plugin package
+
+The skill installs directly in Codex using the instructions above. This repository also includes a portable OpenAI plugin package. To submit that package to the OpenAI plugin directory, create a ZIP with `plugin.json` at its root, then upload it in the [OpenAI Platform Plugins dashboard](https://platform.openai.com/plugins). The directory requires a verified developer identity, automated checks, and OpenAI review before publication. See the [submission guide](https://developers.openai.com/plugins/deploy/submission). A GitHub release does not automatically add the plugin to that directory.
 
 To create an archive for a tagged release, set `VERSION` to the tag's numeric version:
 
@@ -50,4 +72,4 @@ MIT. See [`LICENSE`](LICENSE).
 
 ## Contributing
 
-Issues and pull requests are welcome. Keep recommendations tied to primary documentation or clearly label them as tradeoffs. Framework specific advice should name the relevant implementation and version.
+Issues and pull requests are welcome. See [`CONTRIBUTING.md`](CONTRIBUTING.md) for the review criteria and contribution steps. Use the issue forms in GitHub to report a problem or propose a change.

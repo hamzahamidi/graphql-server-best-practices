@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "graphql-server-best-practices",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "GraphQL field resolvers, DataLoader batching, N+1 prevention, security, and performance.",
   "author": {
     "name": "Hamza Hamidi",
@@ -28,6 +28,7 @@
         "capabilities": [],
         "websiteURL": "https://github.com/hamzahamidi/graphql-server-best-practices",
         "supportURL": "https://github.com/hamzahamidi/graphql-server-best-practices/issues",
+        "privacyPolicyURL": "https://github.com/hamzahamidi/graphql-server-best-practices/blob/master/PRIVACY.md",
         "defaultPrompt": [
           "Review this GraphQL resolver change for N+1 calls and loader scope."
         ],

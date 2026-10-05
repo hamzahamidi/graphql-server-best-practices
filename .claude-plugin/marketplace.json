@@ -1,0 +1,14 @@
+{
+  "name": "graphql-server-best-practices",
+  "description": "A portable GraphQL server best practices skill.",
+  "owner": {
+    "name": "Hamza Hamidi"
+  },
+  "plugins": [
+    {
+      "name": "graphql-server-best-practices",
+      "source": "./",
+      "description": "Framework aware guidance for GraphQL server schemas, resolvers, batching, security, and performance."
+    }
+  ]
+}

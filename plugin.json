@@ -1,0 +1,15 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "graphql-server-best-practices",
+  "version": "1.0.0",
+  "description": "Framework aware guidance for GraphQL server schemas, resolvers, batching, security, and performance.",
+  "author": {
+    "name": "Hamza Hamidi",
+    "url": "https://github.com/hamzahamidi"
+  },
+  "homepage": "https://github.com/hamzahamidi/graphql-server-best-practices",
+  "repository": "https://github.com/hamzahamidi/graphql-server-best-practices",
+  "license": "MIT",
+  "keywords": ["graphql", "resolvers", "dataloader", "coding-agent", "skills"],
+  "skills": "./skills/"
+}

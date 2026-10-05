@@ -51,9 +51,9 @@ authorization, and follow the loader's result ordering and cache scope. Use
 Promise.all only for independent work, not to issue one request per post.
 ```
 
-### ChatGPT and Codex plugin package
+### Optional OpenAI plugin package
 
-This repository includes a portable OpenAI plugin package and the skill. To submit it to the ChatGPT and Codex plugin directory, create a ZIP with `plugin.json` at its root, then upload it in the [OpenAI Platform Plugins dashboard](https://platform.openai.com/plugins). The directory requires a verified developer identity, automated checks, and OpenAI review before publication. See the [submission guide](https://developers.openai.com/plugins/deploy/submission). A GitHub release does not automatically add the plugin to that directory.
+The skill installs directly in Codex using the instructions above. This repository also includes a portable OpenAI plugin package. To submit that package to the OpenAI plugin directory, create a ZIP with `plugin.json` at its root, then upload it in the [OpenAI Platform Plugins dashboard](https://platform.openai.com/plugins). The directory requires a verified developer identity, automated checks, and OpenAI review before publication. See the [submission guide](https://developers.openai.com/plugins/deploy/submission). A GitHub release does not automatically add the plugin to that directory.
 
 To create an archive for a tagged release, set `VERSION` to the tag's numeric version:
 

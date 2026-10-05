@@ -10,7 +10,7 @@ Open an issue for a problem or a larger proposal. Use a pull request for a focus
 
 Tie behavior claims to primary documentation, such as the GraphQL specification, GraphQL.org, or the documentation for the relevant server or loader library. Name the framework and version when advice depends on an implementation detail. Label trade-offs as trade-offs, and avoid presenting one framework's convention as universal.
 
-Keep the skill consistent with its core guidance: nested fields own their independent data access, DataLoader or an equivalent batches repeated lookups through a real bulk operation, and `Promise.all` handles independent concurrent work rather than replacing batching.
+Keep the skill consistent with its core guidance: independently loaded relationships belong to their field, DataLoader or an equivalent batches repeated lookups through a real bulk operation, and `Promise.all` handles independent concurrent work rather than replacing batching.
 
 ## Before opening a pull request
 

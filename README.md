@@ -8,7 +8,7 @@ The guidance is framework aware. It asks an agent to inspect the codebase and th
 
 ### Codex
 
-For a project, copy `skills/graphql-server-best-practices` into that project's `.agents/skills/` directory. Codex will discover the `SKILL.md` there. For personal use, copy it to `~/.agents/skills/graphql-server-best-practices/`.
+For a project, copy `skills/graphql-server-best-practices` into that project's `.agents/skills/` directory. Codex will discover the `SKILL.md` there. For personal use, copy it to `~/.agents/skills/graphql-server-best-practices/`. See the [Codex skills guide](https://developers.openai.com/codex/skills/) for discovery scopes.
 
 ### Claude Code
 
@@ -33,10 +33,11 @@ The CLI can install it for supported agents such as Claude Code, Codex, Cursor, 
 
 This repository includes a portable OpenAI plugin package and the skill. To submit it to the ChatGPT and Codex plugin directory, create a ZIP with `plugin.json` at its root, then upload it in the [OpenAI Platform Plugins dashboard](https://platform.openai.com/plugins). The directory requires a verified developer identity, automated checks, and OpenAI review before publication. See the [submission guide](https://developers.openai.com/plugins/deploy/submission). A GitHub release does not automatically add the plugin to that directory.
 
-After the `v1.0.0` tag exists, create the package with:
+To create an archive for a tagged release, set `VERSION` to the tag's numeric version:
 
 ```sh
-git archive --format=zip --output=graphql-server-best-practices-1.0.0.zip v1.0.0
+VERSION=1.0.2
+git archive --format=zip --output="graphql-server-best-practices-${VERSION}.zip" "v${VERSION}"
 ```
 
 ## Guidance and sources

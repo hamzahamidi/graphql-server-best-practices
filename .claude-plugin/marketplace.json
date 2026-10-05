@@ -8,7 +8,7 @@
     {
       "name": "graphql-server-best-practices",
       "source": "./",
-      "description": "Framework aware guidance for GraphQL server schemas, resolvers, batching, security, and performance."
+      "description": "GraphQL field resolvers, DataLoader batching, N+1 prevention, security, and performance."
     }
   ]
 }

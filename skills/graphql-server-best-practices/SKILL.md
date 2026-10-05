@@ -1,6 +1,6 @@
 ---
 name: graphql-server-best-practices
-description: Design, implement, review, or debug GraphQL server schemas, resolvers, data loading, and performance. Use for GraphQL backend work in any language or server framework.
+description: Design, implement, review, or debug GraphQL servers, especially nested field resolvers, N+1 lookups, DataLoader, authorization, and query cost. Use for GraphQL backend work in any language or server framework.
 ---
 
 # GraphQL server best practices
@@ -21,7 +21,7 @@ GraphQL executes a selection set by resolving its fields. Keep each field's data
 1. Have a root resolver fetch the root object or collection it owns. Let nested fields resolve through their own field resolvers when they have independent data access, arguments, computation, or authorization.
 2. A resolver returns the value of its own field. The GraphQL executor uses that value as the source for resolving child fields. For example, `Post.author` returns the author value, which becomes the source for fields such as `User.name`. Do not manually walk the selection tree and recursively resolve child fields in a parent resolver unless the repository has an intentional query planner or projection layer that owns this work.
 3. Use the framework's default field resolver when the parent already contains the correctly shaped field value and no separate policy or lookup is needed. An explicit resolver for every scalar field is unnecessary.
-4. Treat sibling fields as independent. Do not rely on one sibling resolver running before another or on hidden mutations to shared parent objects.
+4. Treat sibling query fields and sibling nested fields as independent. Do not rely on sibling resolver order or on hidden mutations to shared parent objects. GraphQL serializes the top-level fields of a mutation operation; this guarantee does not extend to their nested fields.
 5. Eager loading, joins, bulk hydration, and compiled projections are valid optimizations when they fit the framework and repository, preserve authorization, and avoid fetching unnecessary data. Keep independent field behavior testable and do not manually resolve child selections in the root resolver as an ad hoc shortcut.
 
 JavaScript example in resolver-map style. Adapt the syntax to the server framework in use:
@@ -80,7 +80,7 @@ In JavaScript, `Promise.all` and DataLoader solve different problems. Use the ru
 4. Apply query cost or complexity budgets, rate limits, timeouts, and input-size limits when appropriate for the API's exposure and traffic. Consider depth, aliases and field breadth, and transport-level request batching where the server supports them. Make timeouts reach downstream work where possible. Do not invent fixed limits without checking operational requirements. Persisted-query caching alone is not an allowlist.
 5. Keep resolver errors consistent with the API's contract. Represent expected business outcomes in schema types when clients need to branch on them. Return sanitized errors for unexpected failures and keep diagnostic detail in server logs.
 6. For HTTP GraphQL, follow the server framework's guidance for CSRF protection, rejecting mutations over GET, and response cache isolation for authenticated data.
-7. Keep query fields and nested fields side-effect-free and idempotent. Put writes in top-level mutation field resolvers. The GraphQL specification serializes top-level mutation fields, but this does not make the operation transactional. Do not rely on ordering among query fields or nested fields.
+7. Keep query fields and nested fields side-effect-free and idempotent. Put writes in top-level mutation field resolvers. The GraphQL specification serializes top-level mutation fields, but this does not make the operation transactional.
 
 ## Review the result
 

@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.2
+
+Clarify mutation field execution, improve skill discovery metadata, and update release packaging instructions.
+
 ## 1.0.1
 
 Document installation through the cross-agent Skills CLI.

@@ -1,0 +1,40 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "graphql-server-best-practices",
+  "version": "1.0.0",
+  "description": "Framework aware guidance for GraphQL server schemas, resolvers, batching, security, and performance.",
+  "author": {
+    "name": "Hamza Hamidi",
+    "url": "https://github.com/hamzahamidi"
+  },
+  "homepage": "https://github.com/hamzahamidi/graphql-server-best-practices",
+  "repository": "https://github.com/hamzahamidi/graphql-server-best-practices",
+  "license": "MIT",
+  "keywords": [
+    "graphql",
+    "resolvers",
+    "dataloader",
+    "coding-agent",
+    "skills"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "GraphQL Server Best Practices",
+        "shortDescription": "GraphQL server guidance",
+        "longDescription": "Framework aware guidance for GraphQL server schemas, nested field resolvers, DataLoader and equivalent batching, query cost, authorization, and performance. It asks agents to inspect the repository and framework version, and distinguishes the GraphQL specification from library contracts and recommendations. It does not require a resolver for every field or prescribe DataLoader when parent values, eager loading, or bulk queries already solve the access pattern.",
+        "developerName": "Hamza Hamidi",
+        "category": "Developer Tools",
+        "capabilities": [],
+        "websiteURL": "https://github.com/hamzahamidi/graphql-server-best-practices",
+        "supportURL": "https://github.com/hamzahamidi/graphql-server-best-practices/issues",
+        "defaultPrompt": [
+          "Review this GraphQL resolver change for N+1 calls and loader scope."
+        ],
+        "brandColor": "#247A62",
+        "composerIcon": "./assets/graphql-icon.svg",
+        "logo": "./assets/graphql-icon.svg"
+      }
+    }
+  }
+}

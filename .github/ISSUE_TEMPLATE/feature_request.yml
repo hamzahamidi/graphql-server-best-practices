@@ -1,0 +1,28 @@
+name: Suggest guidance
+description: Propose a GraphQL server topic or improvement for the skill.
+title: "[Guidance] "
+body:
+  - type: markdown
+    attributes:
+      value: Share only information that is safe to make public. Do not include credentials or private code.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem to address
+      description: What GraphQL server task or decision is difficult to handle with the current guidance?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Suggested guidance
+      description: Describe what an agent should do or consider.
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Primary sources or examples
+      description: Link relevant specifications or framework documentation, and name versions when behavior is implementation-specific.
+    validations:
+      required: false

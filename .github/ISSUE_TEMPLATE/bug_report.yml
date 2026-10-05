@@ -1,0 +1,29 @@
+name: Report a problem
+description: Report incorrect, unclear, or missing GraphQL server guidance.
+title: "[Bug] "
+body:
+  - type: markdown
+    attributes:
+      value: Share only information that is safe to make public. Do not include credentials or private code.
+  - type: textarea
+    id: guidance
+    attributes:
+      label: Guidance in question
+      description: Link to or quote the relevant section of the skill.
+      placeholder: Name the section or paste a short excerpt.
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is wrong or unclear?
+      description: Describe the behavior you expected and what the current guidance says.
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Framework and version
+      description: Include the GraphQL server, relevant library versions, and a public documentation link if applicable.
+    validations:
+      required: false

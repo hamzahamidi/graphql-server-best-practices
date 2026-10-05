@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "graphql-server-best-practices",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Framework aware guidance for GraphQL server schemas, resolvers, batching, security, and performance.",
   "author": {
     "name": "Hamza Hamidi",

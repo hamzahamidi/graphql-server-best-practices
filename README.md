@@ -19,6 +19,16 @@ claude plugin marketplace add hamzahamidi/graphql-server-best-practices
 claude plugin install graphql-server-best-practices@graphql-server-best-practices
 ```
 
+### Other supported coding agents
+
+Install the skill with the open source [`skills` CLI](https://github.com/vercel-labs/skills):
+
+```sh
+npx skills add hamzahamidi/graphql-server-best-practices --skill graphql-server-best-practices
+```
+
+The CLI can install it for supported agents such as Claude Code, Codex, Cursor, and Windsurf. See the [CLI documentation](https://www.skills.sh/docs/cli) for agent options and telemetry settings.
+
 ### ChatGPT and Codex plugin package
 
 This repository includes a portable OpenAI plugin package and the skill. To submit it to the ChatGPT and Codex plugin directory, create a ZIP with `plugin.json` at its root, then upload it in the [OpenAI Platform Plugins dashboard](https://platform.openai.com/plugins). The directory requires a verified developer identity, automated checks, and OpenAI review before publication. See the [submission guide](https://developers.openai.com/plugins/deploy/submission). A GitHub release does not automatically add the plugin to that directory.

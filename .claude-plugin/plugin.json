@@ -1,6 +1,6 @@
 {
   "name": "graphql-server-best-practices",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "GraphQL field resolvers, DataLoader batching, N+1 prevention, security, and performance.",
   "author": {
     "name": "Hamza Hamidi",

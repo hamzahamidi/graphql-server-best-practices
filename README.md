@@ -1,5 +1,8 @@
 # GraphQL Server Best Practices
 
+[![Latest release](https://img.shields.io/github/v/release/hamzahamidi/graphql-server-best-practices?display_name=tag)](https://github.com/hamzahamidi/graphql-server-best-practices/releases/latest)
+[![MIT License](https://img.shields.io/github/license/hamzahamidi/graphql-server-best-practices)](LICENSE)
+
 A portable skill and practical reference for people and coding agents working on GraphQL servers. It focuses on field resolvers, DataLoader and equivalent batching, query cost, authorization, and schema design.
 
 The guidance is framework aware. It asks an agent to inspect the codebase and the installed framework version before recommending a pattern. It does not require a resolver for every field: use the default resolver when the parent already contains the value. Use nested field resolvers for independently loaded relationships, and use DataLoader or an equivalent when repeated lookups can be batched through a real bulk operation. `Promise.all` is for independent concurrent work, not a substitute for batching.
@@ -65,6 +68,8 @@ git archive --format=zip --output="graphql-server-best-practices-${VERSION}.zip"
 ## Guidance and sources
 
 Read [`skills/graphql-server-best-practices/SKILL.md`](skills/graphql-server-best-practices/SKILL.md) for the full checklist, examples, and links to the GraphQL specification, GraphQL.org, DataLoader, and Apollo documentation. The file is the single source of the technical guidance.
+
+See [`PRIVACY.md`](PRIVACY.md) for the plugin privacy policy.
 
 ## License
 

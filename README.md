@@ -60,6 +60,8 @@ Promise.all only for independent work, not to issue one request per post.
 
 The skill installs directly in Codex using the instructions above. This repository also includes a portable OpenAI plugin package. To submit that package to the OpenAI plugin directory, create a ZIP with `plugin.json` at its root, then upload it in the [OpenAI Platform Plugins dashboard](https://platform.openai.com/plugins). The directory requires a verified developer identity, automated checks, and OpenAI review before publication. See the [submission guide](https://developers.openai.com/plugins/deploy/submission). A GitHub release does not automatically add the plugin to that directory.
 
+The `v1.0.3` package has been submitted to OpenAI and is under review. It is not publicly listed yet.
+
 To create an archive for a tagged release, set `VERSION` to the tag's numeric version:
 
 ```sh

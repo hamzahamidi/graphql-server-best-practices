@@ -32,6 +32,8 @@ npx skills add hamzahamidi/graphql-server-best-practices --skill graphql-server-
 
 The CLI can install it for supported agents such as Claude Code, Codex, Cursor, and Windsurf. See the [CLI documentation](https://www.skills.sh/docs/cli) for agent options and telemetry settings.
 
+Browse the listing on [Skills.sh](https://www.skills.sh/hamzahamidi/graphql-server-best-practices/graphql-server-best-practices).
+
 ## Usage examples
 
 Use the skill by asking an agent to apply it to a concrete GraphQL task. For example:
